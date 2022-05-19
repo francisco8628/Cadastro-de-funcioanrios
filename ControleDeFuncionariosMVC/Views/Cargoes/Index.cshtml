@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ControleDeFuncionariosMVC.Models.Cargo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Cargos Cadastrados</h4>
+
+<p>
+    <a asp-action="Create">Criar Novo Cargo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Situacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CargoNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CargoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.CargoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.CargoId">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

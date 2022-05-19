@@ -1,0 +1,30 @@
+﻿@model ControleDeFuncionariosMVC.Models.Cargo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>Detalhe do Cargo</h4>
+
+<div>
+    <h4>Cargo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">           
+            @Html.DisplayNameFor(model => model.CargoNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CargoNome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CargoId">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>
