@@ -4,10 +4,8 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalhes do Funcionario</h1>
-
 <div>
-    <h4>Funcionario</h4>
+    <h4> Detalhes do Funcionario</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,10 +21,10 @@
             @Html.DisplayFor(model => model.Situacao)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data_Admissao)
+            @Html.DisplayNameFor(model => model.DataAdmissao)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data_Admissao)
+            @Html.DisplayFor(model => model.DataAdmissao)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Salario)
@@ -38,11 +36,11 @@
             @Html.DisplayNameFor(model => model.Cargo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cargo.CargoId)
+            @Html.DisplayFor(model => model.Cargo.NomeCargo)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.FuncionarioId">Editar</a> |
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Edit" asp-route-id="@Model?.FuncionarioId" role="button" class="btn btn-primary" style="width: 90px;margin-top:10px;">Editar</a> 
+    <a asp-action="Index"  class="btn btn-warning d-inline-block" style="width: 90px; margin-top:10px;">Voltar</a>
 </div>

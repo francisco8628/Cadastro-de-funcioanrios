@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleDeFuncionariosMVC.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220519060234_Criacao-Inicial")]
+    [Migration("20220521135536_Criacao-Inicial")]
     partial class CriacaoInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,14 +25,18 @@ namespace ControleDeFuncionariosMVC.Migrations
                 {
                     b.Property<int>("CargoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("IdCargo");
 
-                    b.Property<string>("CargoNome")
+                    b.Property<string>("NomeCargo")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("NomeCargo");
 
                     b.Property<bool>("Situacao")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("Situacao");
 
                     b.HasKey("CargoId");
 
@@ -43,23 +47,29 @@ namespace ControleDeFuncionariosMVC.Migrations
                 {
                     b.Property<int>("FuncionarioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("FuncionarioId");
 
                     b.Property<int>("CargoId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Data_Admissao")
-                        .HasColumnType("datetime(6)");
+                    b.Property<DateTime>("DataAdmissao")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("Data_Admissao");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Nome");
 
                     b.Property<decimal>("Salario")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(65,30)")
+                        .HasColumnName("Salario");
 
                     b.Property<bool>("Situacao")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("Situacao");
 
                     b.HasKey("FuncionarioId");
 

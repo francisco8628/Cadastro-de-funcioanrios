@@ -48,7 +48,7 @@ namespace ControleDeFuncionariosMVC.Controllers
         // GET: Funcionarios/Create
         public IActionResult Create()
         {
-            ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "CargoNome");
+            ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "NomeCargo");
             return View();
         }
 
@@ -57,15 +57,16 @@ namespace ControleDeFuncionariosMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,Situacao,Data_Admissao,Salario,CargoId")] Funcionario funcionario)
+        public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,Situacao,DataAdmissao,Salario,CargoId")] Funcionario funcionario)
         {
-            
+           // if (ModelState.IsValid)
+           // {
                 _context.Add(funcionario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-           
-                ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "CargoNome", funcionario.CargoId);
-                return View(funcionario);
+          //  }
+            ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "NomeCargo", funcionario.CargoId);
+            return View(funcionario);
         }
 
         // GET: Funcionarios/Edit/5
@@ -81,7 +82,7 @@ namespace ControleDeFuncionariosMVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "CargoNome", funcionario.CargoId);
+            ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "NomeCargo", funcionario.CargoId);
             return View(funcionario);
         }
 
@@ -90,14 +91,16 @@ namespace ControleDeFuncionariosMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,Situacao,Data_Admissao,Salario,CargoId")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,Situacao,DataAdmissao,Salario,CargoId")] Funcionario funcionario)
         {
             if (id != funcionario.FuncionarioId)
             {
                 return NotFound();
             }
 
-             try
+         //   if (ModelState.IsValid)
+           // {
+                try
                 {
                     _context.Update(funcionario);
                     await _context.SaveChangesAsync();
@@ -114,9 +117,9 @@ namespace ControleDeFuncionariosMVC.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-           
-                ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "CargoId", funcionario.CargoId);
-                return View(funcionario);
+           // }
+            ViewData["CargoId"] = new SelectList(_context.Cargo, "CargoId", "NomeCargo", funcionario.CargoId);
+            return View(funcionario);
         }
 
         // GET: Funcionarios/Delete/5

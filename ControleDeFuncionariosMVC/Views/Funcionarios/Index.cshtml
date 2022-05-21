@@ -4,11 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h4>Funcionarios Cadastrados</h4>
+<h4>Lista de Funcionarios</h4>
 
-<p>
-    <a asp-action="Create">Adicionar Funcionario</a>
-</p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">   
+     <a asp-action="Create" class="btn btn-primary" role="button" >Adicionar novo Funcionario</a>
+</div>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -19,7 +21,7 @@
                 @Html.DisplayNameFor(model => model.Situacao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Data_Admissao)
+                @Html.DisplayNameFor(model => model.DataAdmissao)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Salario)
@@ -40,20 +42,21 @@
                 @Html.DisplayFor(modelItem => item.Situacao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Data_Admissao)
+                @Html.DisplayFor(modelItem => item.DataAdmissao)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Salario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cargo.CargoNome)
+                @Html.DisplayFor(modelItem => item.Cargo.NomeCargo)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FuncionarioId">Edite</a> |
-                <a asp-action="Details" asp-route-id="@item.FuncionarioId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.FuncionarioId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FuncionarioId"    role="button" class="btn btn-primary" style="width: 90px; margin-top:10px;">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.FuncionarioId" role="button" class="btn btn-info"  style="width: 90px; margin-top:10px;">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.FuncionarioId"  role="button" class="btn btn-danger" style="width: 90px; margin-top:10px;">Deletar</a>
             </td>
-        </tr>
-}
+        </tr>}
     </tbody>
 </table>
+
+

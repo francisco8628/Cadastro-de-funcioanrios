@@ -56,14 +56,12 @@ namespace ControleDeFuncionariosMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CargoId,CargoNome,Situacao")] Cargo cargo)
-        {
-         
-          
+        public async Task<IActionResult> Create([Bind("CargoId,NomeCargo,Situacao")] Cargo cargo)
+        {           
                 _context.Add(cargo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-          
+        
                 return View(cargo);
         }
 
@@ -88,15 +86,15 @@ namespace ControleDeFuncionariosMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CargoId,CargoNome,Situacao")] Cargo cargo)
+        public async Task<IActionResult> Edit(int id, [Bind("CargoId,NomeCargo,Situacao")] Cargo cargo)
         {
             if (id != cargo.CargoId)
             {
                 return NotFound();
             }
 
-            
-         
+           // if (ModelState.IsValid)
+           // {
                 try
                 {
                     _context.Update(cargo);
@@ -114,8 +112,8 @@ namespace ControleDeFuncionariosMVC.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-           
-                 return View(cargo);
+           // }
+            return View(cargo);
         }
 
         // GET: Cargoes/Delete/5

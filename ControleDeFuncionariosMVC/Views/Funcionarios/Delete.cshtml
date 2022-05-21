@@ -4,11 +4,11 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Deletar Funcionario</h1>
+<h2>Deletar</h2>
 
-<h3>Você tem certeza que quer apagar este Funcionario?</h3>
+<h4>Você tem certeza que quer apagar este Funcionario ?</h4>
 <div>
-    <h4>Funcionario</h4>
+   
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -24,10 +24,10 @@
             @Html.DisplayFor(model => model.Situacao)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data_Admissao)
+            @Html.DisplayNameFor(model => model.DataAdmissao)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data_Admissao)
+            @Html.DisplayFor(model => model.DataAdmissao)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Salario)
@@ -39,13 +39,13 @@
             @Html.DisplayNameFor(model => model.Cargo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cargo.CargoId)
+            @Html.DisplayFor(model => model.Cargo.NomeCargo)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="FuncionarioId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" style="width: 90px; margin-top:10px;" /> 
+        <a asp-action="Index" class="btn btn-warning d-inline-block" style="width: 90px; margin-top:10px;" >Voltar</a>
     </form>
 </div>

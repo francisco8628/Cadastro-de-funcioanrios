@@ -17,15 +17,15 @@ namespace ControleDeFuncionariosMVC.Migrations
                 name: "Cargo",
                 columns: table => new
                 {
-                    CargoId = table.Column<int>(type: "int", nullable: false)
+                    IdCargo = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CargoNome = table.Column<string>(type: "longtext", nullable: false)
+                    NomeCargo = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Situacao = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cargo", x => x.CargoId);
+                    table.PrimaryKey("PK_Cargo", x => x.IdCargo);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -35,7 +35,7 @@ namespace ControleDeFuncionariosMVC.Migrations
                 {
                     FuncionarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "longtext", nullable: false)
+                    Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Situacao = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     Data_Admissao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -49,7 +49,7 @@ namespace ControleDeFuncionariosMVC.Migrations
                         name: "FK_Usuario_Cargo_CargoId",
                         column: x => x.CargoId,
                         principalTable: "Cargo",
-                        principalColumn: "CargoId",
+                        principalColumn: "IdCargo",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");

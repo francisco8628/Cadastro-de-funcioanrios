@@ -4,16 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h4>Cargos Cadastrados</h4>
+<h4>Cargos</h4>
 
-<p>
-    <a asp-action="Create">Criar Novo Cargo</a>
-</p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">   
+    <a asp-action="Create"  class="btn btn-primary" role="button">Criar novo cargo </a>
+</div>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CargoNome)
+                @Html.DisplayNameFor(model => model.NomeCargo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Situacao)
@@ -25,15 +26,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CargoNome)
+                @Html.DisplayFor(modelItem => item.NomeCargo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Situacao)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CargoId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.CargoId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.CargoId">Deletar</a>
+                <a asp-action="Edit" asp-route-id="@item.CargoId" role="button" class="btn btn-primary" style="width: 90px;">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.CargoId" role="button" class="btn btn-info" style="width: 90px;">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.CargoId" role="button" class="btn btn-danger" style="width: 90px;">Deletar</a>
             </td>
         </tr>
 }
